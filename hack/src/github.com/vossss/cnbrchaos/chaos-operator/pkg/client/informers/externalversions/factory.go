@@ -23,9 +23,9 @@ import (
 	sync "sync"
 	time "time"
 
-	versioned "github.com/vossss/cnbrchaos/chaos-operator/pkg/client/clientset/versioned"
-	cnbrchaos "github.com/vossss/cnbrchaos/chaos-operator/pkg/client/informers/externalversions/cnbrchaos"
-	internalinterfaces "github.com/vossss/cnbrchaos/chaos-operator/pkg/client/informers/externalversions/internalinterfaces"
+	versioned "github.com/vossss/cnbrchaos/pkg/client/clientset/versioned"
+	cnbrchaos "github.com/vossss/cnbrchaos/pkg/client/informers/externalversions/cnbrchaos"
+	internalinterfaces "github.com/vossss/cnbrchaos/pkg/client/informers/externalversions/internalinterfaces"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

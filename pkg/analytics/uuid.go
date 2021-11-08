@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"os"
 
-	clientset "github.com/vossss/cnbrchaos/chaos-operator/pkg/kubernetes"
+	clientset "github.com/vossss/cnbrchaos/pkg/kubernetes"
 	core_v1 "k8s.io/api/core/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"

@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/apis/cnbrchaos/v1alpha1"
+	"github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
 	volume "github.com/litmuschaos/elves/kubernetes/volume/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 )

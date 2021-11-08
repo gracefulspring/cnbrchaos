@@ -8,7 +8,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/apis"
+	"github.com/vossss/cnbrchaos/pkg/apis"
 	"os"
 	"runtime"
 	// Import all Kubernetes client auth plugins (e.g. Azure, GCP, OIDC, etc.)
@@ -24,8 +24,8 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 	"sigs.k8s.io/controller-runtime/pkg/runtime/signals"
 
-//	"github.com/vossss/cnbrchaos/chaos-operator/pkg/apis"
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/controller"
+//	"github.com/vossss/cnbrchaos/pkg/apis"
+	"github.com/vossss/cnbrchaos/pkg/controller"
 )
 
 // Change below variables to serve metrics on different host or port.

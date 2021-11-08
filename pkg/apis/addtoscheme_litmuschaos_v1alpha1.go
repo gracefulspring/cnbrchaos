@@ -5,7 +5,7 @@ Copyright 2021 hatech Authors
 package apis
 
 import (
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/apis/cnbrchaos/v1alpha1"
+	"github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
 )
 
 func init() {

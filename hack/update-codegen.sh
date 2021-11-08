@@ -19,7 +19,7 @@ fi
 git --git-dir=${GOPATH}/src/k8s.io/code-generator/.git  --work-tree=${GOPATH}/src/k8s.io/code-generator checkout v0.15.12
 
 ${GOPATH}/src/k8s.io/code-generator/generate-groups.sh client,lister,informer \
-  github.com/vossss/cnbrchaos/chaos-operator/pkg/client github.com/vossss/cnbrchaos/chaos-operator/pkg/apis \
+  github.com/vossss/cnbrchaos/pkg/client github.com/vossss/cnbrchaos/pkg/apis \
   cnbrchaos:v1alpha1
 
 #${GOPATH}/src/k8s.io/code-generator/generate-groups.sh client,lister,informer \

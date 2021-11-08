@@ -19,8 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
-	v1alpha1 "github.com/vossss/cnbrchaos/chaos-operator/pkg/apis/cnbrchaos/v1alpha1"
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/client/clientset/versioned/scheme"
+	v1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	"github.com/vossss/cnbrchaos/pkg/client/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

@@ -17,8 +17,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/chaos-operator/pkg/apis/cnbrchaos/v1alpha1"
-	chaosTypes "github.com/vossss/cnbrchaos/chaos-operator/pkg/controller/types"
+	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	chaosTypes "github.com/vossss/cnbrchaos/pkg/controller/types"
 )
 
 // WatchForRunnerPod creates watcher for Chaos Runner Pod

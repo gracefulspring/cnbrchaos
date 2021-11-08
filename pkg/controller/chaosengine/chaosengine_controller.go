@@ -32,14 +32,14 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/analytics"
-	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/chaos-operator/pkg/apis/cnbrchaos/v1alpha1"
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/controller/resource"
-	chaosTypes "github.com/vossss/cnbrchaos/chaos-operator/pkg/controller/types"
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/controller/utils"
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/controller/watcher"
-	dynamicclientset "github.com/vossss/cnbrchaos/chaos-operator/pkg/dynamic"
-	clientset "github.com/vossss/cnbrchaos/chaos-operator/pkg/kubernetes"
+	"github.com/vossss/cnbrchaos/pkg/analytics"
+	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	"github.com/vossss/cnbrchaos/pkg/controller/resource"
+	chaosTypes "github.com/vossss/cnbrchaos/pkg/controller/types"
+	"github.com/vossss/cnbrchaos/pkg/controller/utils"
+	"github.com/vossss/cnbrchaos/pkg/controller/watcher"
+	dynamicclientset "github.com/vossss/cnbrchaos/pkg/dynamic"
+	clientset "github.com/vossss/cnbrchaos/pkg/kubernetes"
 )
 
 const finalizer = "chaosengine.cnbrchaos.io/finalizer"

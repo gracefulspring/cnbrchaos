@@ -22,9 +22,9 @@ package types
 import (
 	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/apis/cnbrchaos/v1alpha1"
-	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/chaos-operator/pkg/apis/cnbrchaos/v1alpha1"
-	"github.com/vossss/cnbrchaos/chaos-operator/pkg/controller/utils"
+	"github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	"github.com/vossss/cnbrchaos/pkg/controller/utils"
 )
 
 var (

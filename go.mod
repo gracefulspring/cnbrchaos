@@ -1,4 +1,4 @@
-module github.com/vossss/cnbrchaos/chaos-operator
+module github.com/vossss/cnbrchaos
 
 go 1.16
 

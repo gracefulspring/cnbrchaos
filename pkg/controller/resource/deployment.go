@@ -12,7 +12,7 @@ import (
 	metaV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 
-	chaosTypes "github.com/vossss/cnbrchaos/chaos-operator/pkg/controller/types"
+	chaosTypes "github.com/vossss/cnbrchaos/pkg/controller/types"
 )
 
 // CheckDeploymentAnnotation will check the annotation of deployment
