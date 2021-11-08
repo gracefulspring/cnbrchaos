@@ -1,0 +1,65 @@
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  name: cnbr
+#---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cnbrchaos
+  namespace: cnbr
+  labels:
+    app.kubernetes.io/name: cnbrchaos
+    # provide unique instance-id if applicable
+    # app.kubernetes.io/instance: litmus-abcxzy
+    app.kubernetes.io/version: ci
+    app.kubernetes.io/component: operator-serviceaccount
+    app.kubernetes.io/part-of: cnbrchaos
+    app.kubernetes.io/managed-by: kubectl
+    name: cnbrchaos
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: cnbrchaos
+  labels:
+    app.kubernetes.io/name: cnbrchaos
+    # provide unique instance-id if applicable
+    # app.kubernetes.io/instance: litmus-abcxzy
+    app.kubernetes.io/version: ci
+    app.kubernetes.io/component: operator-clusterrole
+    app.kubernetes.io/part-of: cnbrchaos
+    app.kubernetes.io/managed-by: kubectl
+    name: cnbrchaos
+rules:
+- apiGroups: ["","apps","batch","apps.openshift.io","argoproj.io"]
+  resources: ["jobs","deployments","replicationcontrollers","daemonsets","replicasets","statefulsets","deploymentconfigs","rollouts","secrets"]
+  verbs: ["get","list","watch","deletecollection"]
+- apiGroups: ["","litmuschaos.io"]
+  resources: ["pods","configmaps","events","services","chaosengines","chaosexperiments","chaosresults"]
+  verbs: ["get","create","update","patch","delete","list","watch","deletecollection"]
+- apiGroups: ["apiextensions.k8s.io"]
+  resources: ["customresourcedefinitions"]
+  verbs: ["list","get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: cnbrchaos
+  labels:
+    app.kubernetes.io/name: cnbrchaos
+    # provide unique instance-id if applicable
+    # app.kubernetes.io/instance: litmus-abcxzy
+    app.kubernetes.io/version: ci
+    app.kubernetes.io/component: operator-clusterrolebinding
+    app.kubernetes.io/part-of: cnbrchaos
+    app.kubernetes.io/managed-by: kubectl
+    name: cnbrchaos
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cnbrchaos
+subjects:
+- kind: ServiceAccount
+  name: cnbrchaos
+  namespace: cnbrchaos
