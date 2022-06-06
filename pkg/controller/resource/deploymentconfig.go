@@ -1,6 +1,7 @@
 package resource
 
 import (
+	"context"
 	"errors"
 	"fmt"
 
@@ -9,7 +10,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/client-go/dynamic"
 
-	chaosTypes "github.com/vossss/cnbrchaos/pkg/controller/types"
+	chaosTypes "github.com/gracefulspring/cnbrchaos/pkg/controller/types"
 )
 
 var (
@@ -42,7 +43,7 @@ func CheckDeploymentConfigAnnotation(clientSet dynamic.Interface, engine *chaosT
 func getDeploymentConfigList(clientSet dynamic.Interface, engine *chaosTypes.EngineInfo) (*unstructured.UnstructuredList, error) {
 	dynamicClient := clientSet.Resource(gvrdc)
 
-	deploymentConfigList, err := dynamicClient.Namespace(engine.AppInfo.Namespace).List(metav1.ListOptions{
+	deploymentConfigList, err := dynamicClient.Namespace(engine.AppInfo.Namespace).List(context.Background(), metav1.ListOptions{
 		LabelSelector: engine.Instance.Spec.Appinfo.Applabel})
 	if err != nil {
 		return nil, fmt.Errorf("error while listing deploymentconfigs with matching labels: %s", engine.Instance.Spec.Appinfo.Applabel)

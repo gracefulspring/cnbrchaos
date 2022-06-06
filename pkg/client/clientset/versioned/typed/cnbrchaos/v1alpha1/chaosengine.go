@@ -19,10 +19,11 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"context"
 	"time"
 
-	v1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
-	scheme "github.com/vossss/cnbrchaos/pkg/client/clientset/versioned/scheme"
+	v1alpha1 "github.com/gracefulspring/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	scheme "github.com/gracefulspring/cnbrchaos/pkg/client/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -71,7 +72,7 @@ func (c *chaosEngines) Get(name string, options v1.GetOptions) (result *v1alpha1
 		Resource("chaosengines").
 		Name(name).
 		VersionedParams(&options, scheme.ParameterCodec).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -88,7 +89,7 @@ func (c *chaosEngines) List(opts v1.ListOptions) (result *v1alpha1.ChaosEngineLi
 		Resource("chaosengines").
 		VersionedParams(&opts, scheme.ParameterCodec).
 		Timeout(timeout).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -105,7 +106,7 @@ func (c *chaosEngines) Watch(opts v1.ListOptions) (watch.Interface, error) {
 		Resource("chaosengines").
 		VersionedParams(&opts, scheme.ParameterCodec).
 		Timeout(timeout).
-		Watch()
+		Watch(context.Background())
 }
 
 // Create takes the representation of a chaosEngine and creates it.  Returns the server's representation of the chaosEngine, and an error, if there is any.
@@ -115,7 +116,7 @@ func (c *chaosEngines) Create(chaosEngine *v1alpha1.ChaosEngine) (result *v1alph
 		Namespace(c.ns).
 		Resource("chaosengines").
 		Body(chaosEngine).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -128,7 +129,7 @@ func (c *chaosEngines) Update(chaosEngine *v1alpha1.ChaosEngine) (result *v1alph
 		Resource("chaosengines").
 		Name(chaosEngine.Name).
 		Body(chaosEngine).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -144,7 +145,7 @@ func (c *chaosEngines) UpdateStatus(chaosEngine *v1alpha1.ChaosEngine) (result *
 		Name(chaosEngine.Name).
 		SubResource("status").
 		Body(chaosEngine).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -156,7 +157,7 @@ func (c *chaosEngines) Delete(name string, options *v1.DeleteOptions) error {
 		Resource("chaosengines").
 		Name(name).
 		Body(options).
-		Do().
+		Do(context.Background()).
 		Error()
 }
 
@@ -172,7 +173,7 @@ func (c *chaosEngines) DeleteCollection(options *v1.DeleteOptions, listOptions v
 		VersionedParams(&listOptions, scheme.ParameterCodec).
 		Timeout(timeout).
 		Body(options).
-		Do().
+		Do(context.Background()).
 		Error()
 }
 
@@ -185,7 +186,7 @@ func (c *chaosEngines) Patch(name string, pt types.PatchType, data []byte, subre
 		SubResource(subresources...).
 		Name(name).
 		Body(data).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }

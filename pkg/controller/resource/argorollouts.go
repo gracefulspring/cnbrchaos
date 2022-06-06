@@ -1,6 +1,7 @@
 package resource
 
 import (
+	"context"
 	"errors"
 	"fmt"
 
@@ -9,7 +10,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/client-go/dynamic"
 
-	chaosTypes "github.com/vossss/cnbrchaos/pkg/controller/types"
+	chaosTypes "github.com/gracefulspring/cnbrchaos/pkg/controller/types"
 )
 
 var (
@@ -44,7 +45,7 @@ func getRolloutList(clientSet dynamic.Interface, engine *chaosTypes.EngineInfo) 
 
 	dynamicClient := clientSet.Resource(gvrro)
 
-	rolloutList, err := dynamicClient.Namespace(engine.AppInfo.Namespace).List(metav1.ListOptions{
+	rolloutList, err := dynamicClient.Namespace(engine.AppInfo.Namespace).List(context.Background(), metav1.ListOptions{
 		LabelSelector: engine.Instance.Spec.Appinfo.Applabel})
 	if err != nil {
 		return nil, fmt.Errorf("error while listing argo rollouts with matching labels %s", engine.Instance.Spec.Appinfo.Applabel)

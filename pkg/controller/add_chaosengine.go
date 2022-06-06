@@ -5,7 +5,7 @@ Copyright 2021 hatech Authors
 package controller
 
 import (
-	"github.com/vossss/cnbrchaos/pkg/controller/chaosengine"
+	"github.com/gracefulspring/cnbrchaos/pkg/controller/chaosengine"
 )
 
 func init() {

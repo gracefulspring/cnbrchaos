@@ -19,8 +19,8 @@ limitations under the License.
 package litmuschaos
 
 import (
-	v1alpha1 "github.com/vossss/cnbrchaos/pkg/client/informers/externalversions/cnbrchaos/v1alpha1"
-	internalinterfaces "github.com/vossss/cnbrchaos/pkg/client/informers/externalversions/internalinterfaces"
+	v1alpha1 "github.com/gracefulspring/cnbrchaos/pkg/client/informers/externalversions/cnbrchaos/v1alpha1"
+	internalinterfaces "github.com/gracefulspring/cnbrchaos/pkg/client/informers/externalversions/internalinterfaces"
 )
 
 // Interface provides access to each of this group's versions.

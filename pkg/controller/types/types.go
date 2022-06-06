@@ -20,11 +20,11 @@ Copyright 2021 hatech Authors
 package types
 
 import (
-	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
+	logf "sigs.k8s.io/controller-runtime/pkg/log"
 
-	"github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
-	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
-	"github.com/vossss/cnbrchaos/pkg/controller/utils"
+	"github.com/gracefulspring/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	cnbrchaosv1alpha1 "github.com/gracefulspring/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	"github.com/gracefulspring/cnbrchaos/pkg/controller/utils"
 )
 
 var (

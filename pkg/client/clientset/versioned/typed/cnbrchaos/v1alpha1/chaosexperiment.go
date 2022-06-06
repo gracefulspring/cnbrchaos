@@ -19,10 +19,11 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"context"
 	"time"
 
-	v1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
-	scheme "github.com/vossss/cnbrchaos/pkg/client/clientset/versioned/scheme"
+	v1alpha1 "github.com/gracefulspring/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	scheme "github.com/gracefulspring/cnbrchaos/pkg/client/clientset/versioned/scheme"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -71,7 +72,7 @@ func (c *chaosExperiments) Get(name string, options v1.GetOptions) (result *v1al
 		Resource("chaosexperiments").
 		Name(name).
 		VersionedParams(&options, scheme.ParameterCodec).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -88,7 +89,7 @@ func (c *chaosExperiments) List(opts v1.ListOptions) (result *v1alpha1.ChaosExpe
 		Resource("chaosexperiments").
 		VersionedParams(&opts, scheme.ParameterCodec).
 		Timeout(timeout).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -105,7 +106,7 @@ func (c *chaosExperiments) Watch(opts v1.ListOptions) (watch.Interface, error) {
 		Resource("chaosexperiments").
 		VersionedParams(&opts, scheme.ParameterCodec).
 		Timeout(timeout).
-		Watch()
+		Watch(context.Background())
 }
 
 // Create takes the representation of a chaosExperiment and creates it.  Returns the server's representation of the chaosExperiment, and an error, if there is any.
@@ -115,7 +116,7 @@ func (c *chaosExperiments) Create(chaosExperiment *v1alpha1.ChaosExperiment) (re
 		Namespace(c.ns).
 		Resource("chaosexperiments").
 		Body(chaosExperiment).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -128,7 +129,7 @@ func (c *chaosExperiments) Update(chaosExperiment *v1alpha1.ChaosExperiment) (re
 		Resource("chaosexperiments").
 		Name(chaosExperiment.Name).
 		Body(chaosExperiment).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -144,7 +145,7 @@ func (c *chaosExperiments) UpdateStatus(chaosExperiment *v1alpha1.ChaosExperimen
 		Name(chaosExperiment.Name).
 		SubResource("status").
 		Body(chaosExperiment).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }
@@ -156,7 +157,7 @@ func (c *chaosExperiments) Delete(name string, options *v1.DeleteOptions) error 
 		Resource("chaosexperiments").
 		Name(name).
 		Body(options).
-		Do().
+		Do(context.Background()).
 		Error()
 }
 
@@ -172,7 +173,7 @@ func (c *chaosExperiments) DeleteCollection(options *v1.DeleteOptions, listOptio
 		VersionedParams(&listOptions, scheme.ParameterCodec).
 		Timeout(timeout).
 		Body(options).
-		Do().
+		Do(context.Background()).
 		Error()
 }
 
@@ -185,7 +186,7 @@ func (c *chaosExperiments) Patch(name string, pt types.PatchType, data []byte, s
 		SubResource(subresources...).
 		Name(name).
 		Body(data).
-		Do().
+		Do(context.Background()).
 		Into(result)
 	return
 }

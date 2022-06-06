@@ -32,14 +32,14 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	"github.com/vossss/cnbrchaos/pkg/analytics"
-	cnbrchaosv1alpha1 "github.com/vossss/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
-	"github.com/vossss/cnbrchaos/pkg/controller/resource"
-	chaosTypes "github.com/vossss/cnbrchaos/pkg/controller/types"
-	"github.com/vossss/cnbrchaos/pkg/controller/utils"
-	"github.com/vossss/cnbrchaos/pkg/controller/watcher"
-	dynamicclientset "github.com/vossss/cnbrchaos/pkg/dynamic"
-	clientset "github.com/vossss/cnbrchaos/pkg/kubernetes"
+	"github.com/gracefulspring/cnbrchaos/pkg/analytics"
+	cnbrchaosv1alpha1 "github.com/gracefulspring/cnbrchaos/pkg/apis/cnbrchaos/v1alpha1"
+	"github.com/gracefulspring/cnbrchaos/pkg/controller/resource"
+	chaosTypes "github.com/gracefulspring/cnbrchaos/pkg/controller/types"
+	"github.com/gracefulspring/cnbrchaos/pkg/controller/utils"
+	"github.com/gracefulspring/cnbrchaos/pkg/controller/watcher"
+	dynamicclientset "github.com/gracefulspring/cnbrchaos/pkg/dynamic"
+	clientset "github.com/gracefulspring/cnbrchaos/pkg/kubernetes"
 )
 
 const finalizer = "chaosengine.cnbrchaos.io/finalizer"
@@ -835,7 +835,7 @@ func isResultCRDAvailable() (bool, error) {
 		Resource: "customresourcedefinitions",
 	}
 
-	resultList, err := (*dynamicClient).Resource(gvr).List(v1.ListOptions{})
+	resultList, err := (*dynamicClient).Resource(gvr).List(context.Background(), v1.ListOptions{})
 	if err != nil {
 		return false, err
 	}

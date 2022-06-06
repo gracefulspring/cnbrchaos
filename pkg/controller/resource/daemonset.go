@@ -5,6 +5,7 @@ Copyright 2021 hatech Authors
 package resource
 
 import (
+	"context"
 	"errors"
 	"fmt"
 
@@ -12,7 +13,7 @@ import (
 	metaV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 
-	chaosTypes "github.com/vossss/cnbrchaos/pkg/controller/types"
+	chaosTypes "github.com/gracefulspring/cnbrchaos/pkg/controller/types"
 )
 
 // CheckDaemonSetAnnotation will check the annotation of DaemonSet
@@ -33,7 +34,7 @@ func CheckDaemonSetAnnotation(clientset kubernetes.Interface, engine *chaosTypes
 
 // getDaemonSetLists will list the daemonSets which having the chaos label
 func getDaemonSetLists(clientset kubernetes.Interface, engine *chaosTypes.EngineInfo) (*appsV1.DaemonSetList, error) {
-	targetAppList, err := clientset.AppsV1().DaemonSets(engine.AppInfo.Namespace).List(metaV1.ListOptions{
+	targetAppList, err := clientset.AppsV1().DaemonSets(engine.AppInfo.Namespace).List(context.Background(), metaV1.ListOptions{
 		LabelSelector: engine.Instance.Spec.Appinfo.Applabel,
 		FieldSelector: ""})
 	if err != nil {
