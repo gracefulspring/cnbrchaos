@@ -21,6 +21,8 @@ require (
 
 // Pinned to kubernetes-1.16.2
 replace (
+	github.com/containerd/containerd => github.com/containerd/containerd v1.4.13
+	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 	k8s.io/api => k8s.io/api v0.19.15
 	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.19.15
 	k8s.io/apimachinery => k8s.io/apimachinery v0.19.15
@@ -45,6 +47,6 @@ replace (
 	sigs.k8s.io/controller-runtime => sigs.k8s.io/controller-runtime v0.6.5
 )
 
-replace github.com/docker/docker => github.com/moby/moby v0.7.3-0.20190826074503-38ab9da00309 // Required by Helm
+replace github.com/docker/docker => github.com/moby/moby v17.12.0-ce-rc1.0.20190717161051-705d9623b7c1+incompatible // Required by Helm
 
-replace github.com/openshift/api => github.com/openshift/api v0.0.0-20190924102528-32369d4db2ad // Required until https://github.com/operator-framework/operator-lifecycle-manager/pull/1241 is resolved
+replace github.com/openshift/api => github.com/openshift/api v0.0.0-20210928121311-b64fe3d0dc32 // Required until https://github.com/operator-framework/operator-lifecycle-manager/pull/1241 is resolved
